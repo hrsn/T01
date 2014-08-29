@@ -13,7 +13,6 @@ void error(int cod){
 }
 
 
-
 void informacion(){
     char fechayhora[80];
     time_t tiempo;
@@ -21,27 +20,86 @@ void informacion(){
     tiempo = time(NULL);
     punterotm= localtime(&tiempo);
     strftime( fechayhora, 80, "%Y-%m-%d %X", punterotm);
-    printf("Compilacion: %d-%02d-%02d %s", YEAR, MONTH +1, DAY, __TIME__);
+    printf("Fecha de Compilacion: %d-%02d-%02d %s", YEAR, MONTH +1, DAY, __TIME__);
+    //printf("Fecha de Compilacion: %s %s\n", __DATE__, __TIME__);
     printf("\nFecha y hora actual: %s", fechayhora);
     printf("\nVersion 0.1.0");
-    printf("\n\nIntegrantes: \n Alejandra Munoz\n Marcial Jara\n Henry Sepulveda\n");
+    printf("\n\nIntegrantes: \n Alejandra Munoz\n Henry Sepulveda\n");
 }
 
-void grafico(char *tienda){    //Argumento -g <tienda>
-    printf("\ngrafico(%s)\n\n", tienda);
+void grafico(unsigned long long multitienda[]){    
+    //printf("\ngrafico(%s)\n\n", archivocsv);
+    printf("\nCencosux: $ %llu \nFalaferia: $ %llu\nPorahi: $ %llu\nReplay: $ %llu\n",multitienda[0],multitienda[1],multitienda[2],multitienda[3]);
+    
  }
+signed long stringAint(char *cadena){
+    int i;
+    cadena[0]='0';
+    i=strlen(cadena);
+    cadena[i-3]='0';
+    return((atoi(cadena))/10);
+}
+void eliminarcomillas(char *nombre){
+    int i,j;
+    j=strlen(nombre);
+    nombre[j-1]='\0'; //Borra comillas del final
+    for(i=0;i<j;i++)
+        nombre[i]=nombre[i+1];
+}
+void suma_de_ventas(char *archivocsv){
+        char buffer[51], mes_str[13];
+        char *monto_string, *nombre, *fecha;
+        unsigned long monto=0;
+        unsigned long long multitienda[4];
+        int i;
+        FILE *archivo;
+      
+        for (i=0;i<=3;i++)
+              multitienda[i]=0;
+
+        archivo=fopen(archivocsv, "r"); //abre para lectura ("r") - r/w
+        if(archivo==NULL) //comprobaciÃ³n de apertura
+                printf("\n el archivo no se pudo abrir\n");
+        while (feof(archivo)==0){
+                fgets(buffer, 50, archivo);  //se toma una fila del archivo
+                if (feof(archivo)==0){      //condicion necesaria para evitar punteros a vacÃ­os
+                        nombre=strtok(buffer,";");  //Se separan los campos nombre, fecha, monto de venta
+                        fecha=strtok(NULL,";");
+                        monto_string=strtok(NULL,";");
+                        eliminarcomillas(nombre);   //Se eliminan comillas 
+                        //mes = numerodemes(fecha);    //Se filtra numero de mes
+                        monto=stringAint(monto_string); //Se convierte la cadena monto en un entero 
+             
+                        if(strcmp("CencoSux",nombre)==0){   
+                            multitienda[0]=multitienda[0]+monto;
+                        }
+                        if(strcmp("Falaferia",nombre)==0){   
+                            multitienda[1]=multitienda[1]+monto;   
+                        }
+                          if(strcmp("Porahi",nombre)==0){   
+                            multitienda[2]=multitienda[2]+monto;
+                        }
+                        if(strcmp("Replay",nombre)==0){   
+                            multitienda[3]=multitienda[3]+monto;   
+                        }
+                        
+                }
+        }
+        printf("\nCencosux: $ %llu \nFalaferia: $ %llu\nPorahi: $ %llu\nReplay: $ %llu\n",multitienda[0],multitienda[1],multitienda[2],multitienda[3]);
+        grafico(multitienda);
+        fclose(archivo);     
+}
 
 int main(int argc, char** argv) {
-
     if (argc==2){
         if (strcmp(argv[1],"-v")==0)
             informacion();
         else
             error(argc);
         }
-    if (argc==4){
+    if (argc==3){
         if (strcmp(argv[1],"-g")==0) 
-            grafico(argv[2]);
+            suma_de_ventas(argv[2]);
         else
             error(argc);
     }
