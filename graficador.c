@@ -10,7 +10,7 @@ int graficar(long long unsigned multitienda[]) {
         int xtexto=20;
         int ytexto=24;
         char palabra[513];
-	img = gdImageCreate(170,100); //crea una imagen, 100 por 100 pixeles
+	img = gdImageCreate(170,100); //crea una imagen, 170 por 100 pixeles
         gdFontPtr fuente = gdFontGetSmall();
         
         //printf("\ngraficador\nCencosux: $ %llu \nFalaferia: $ %llu\nPorahi: $ %llu\nReplay: $ %llu\n",multitienda[0],multitienda[1],multitienda[2],multitienda[3]);

@@ -64,7 +64,6 @@ void suma_de_ventas(char *archivocsv){
                         fecha=strtok(NULL,";");
                         monto_string=strtok(NULL,";");
                         eliminarcomillas(nombre);   //Se eliminan comillas 
-                        //mes = numerodemes(fecha);    //Se filtra numero de mes
                         monto=stringAint(monto_string); //Se convierte la cadena monto en un entero 
              
                         if(strcmp("CencoSux",nombre)==0){   
@@ -83,7 +82,6 @@ void suma_de_ventas(char *archivocsv){
                 }
         }
        // printf("\nCencosux: $ %llu \nFalaferia: $ %llu\nPorahi: $ %llu\nReplay: $ %llu\n",multitienda[0],multitienda[1],multitienda[2],multitienda[3]);
-        //grafico(multitienda);
         graficar(multitienda);
         fclose(archivo);     
 }
