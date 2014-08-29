@@ -3,8 +3,8 @@
 #include <string.h>
 #include <time.h> 
 #include "FECHACOMPILACION.h"   //para imprimir la fecha en formato ISO
-#include "gd.h"
-#include "gdfonts.h"
+//#include "gd.h"
+//#include "gdfonts.h"
 #include "graficador.c"
 using namespace std;
 
@@ -24,7 +24,7 @@ void informacion(){
     printf("Fecha de Compilacion: %d-%02d-%02d %s", YEAR, MONTH +1, DAY, __TIME__);
     //printf("Fecha de Compilacion: %s %s\n", __DATE__, __TIME__);
     printf("\nFecha y hora actual: %s", fechayhora);
-    printf("\nVersion 1.0.0");
+    printf("\nVersion 1.0.1");
     printf("\n\nIntegrantes: \n Alejandra Munoz\n Henry Sepulveda\n");
 }
 signed long stringAint(char *cadena){
