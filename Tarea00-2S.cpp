@@ -3,6 +3,9 @@
 #include <string.h>
 #include <time.h> 
 #include "FECHACOMPILACION.h"   //para imprimir la fecha en formato ISO
+#include "gd.h"
+#include "gdfonts.h"
+#include "graficador.c"
 using namespace std;
 
 void error(int cod){
@@ -11,8 +14,6 @@ void error(int cod){
     else
         printf("\nParametros invalidos o inexistentes (Parametros: %d)\n", cod-1);
 }
-
-
 void informacion(){
     char fechayhora[80];
     time_t tiempo;
@@ -26,18 +27,12 @@ void informacion(){
     printf("\nVersion 0.1.0");
     printf("\n\nIntegrantes: \n Alejandra Munoz\n Henry Sepulveda\n");
 }
-
-void grafico(unsigned long long multitienda[]){    
-    //printf("\ngrafico(%s)\n\n", archivocsv);
-    printf("\nCencosux: $ %llu \nFalaferia: $ %llu\nPorahi: $ %llu\nReplay: $ %llu\n",multitienda[0],multitienda[1],multitienda[2],multitienda[3]);
-    
- }
 signed long stringAint(char *cadena){
     int i;
     cadena[0]='0';
     i=strlen(cadena);
     cadena[i-3]='0';
-    return((atoi(cadena))/10);
+    return(atoi(cadena));
 }
 void eliminarcomillas(char *nombre){
     int i,j;
@@ -47,7 +42,7 @@ void eliminarcomillas(char *nombre){
         nombre[i]=nombre[i+1];
 }
 void suma_de_ventas(char *archivocsv){
-        char buffer[51], mes_str[13];
+        char buffer[51];
         char *monto_string, *nombre, *fecha;
         unsigned long monto=0;
         unsigned long long multitienda[4];
@@ -60,6 +55,8 @@ void suma_de_ventas(char *archivocsv){
         archivo=fopen(archivocsv, "r"); //abre para lectura ("r") - r/w
         if(archivo==NULL) //comprobaciÃ³n de apertura
                 printf("\n el archivo no se pudo abrir\n");
+        else
+            printf("\nPara ver la suma de ventas totales por tienda revise resultados.jpg\n");
         while (feof(archivo)==0){
                 fgets(buffer, 50, archivo);  //se toma una fila del archivo
                 if (feof(archivo)==0){      //condicion necesaria para evitar punteros a vacÃ­os
@@ -85,8 +82,9 @@ void suma_de_ventas(char *archivocsv){
                         
                 }
         }
-        printf("\nCencosux: $ %llu \nFalaferia: $ %llu\nPorahi: $ %llu\nReplay: $ %llu\n",multitienda[0],multitienda[1],multitienda[2],multitienda[3]);
-        grafico(multitienda);
+       // printf("\nCencosux: $ %llu \nFalaferia: $ %llu\nPorahi: $ %llu\nReplay: $ %llu\n",multitienda[0],multitienda[1],multitienda[2],multitienda[3]);
+        //grafico(multitienda);
+        graficar(multitienda);
         fclose(archivo);     
 }
 

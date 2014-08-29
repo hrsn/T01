@@ -35,7 +35,8 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/Tarea00-2S.o
+	${OBJECTDIR}/Tarea00-2S.o \
+	${OBJECTDIR}/graficador.o
 
 
 # C Compiler Flags
@@ -66,6 +67,11 @@ ${OBJECTDIR}/Tarea00-2S.o: Tarea00-2S.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Tarea00-2S.o Tarea00-2S.cpp
+
+${OBJECTDIR}/graficador.o: graficador.c 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/graficador.o graficador.c
 
 # Subprojects
 .build-subprojects:
