@@ -24,7 +24,7 @@ void informacion(){
     printf("Fecha de Compilacion: %d-%02d-%02d %s", YEAR, MONTH +1, DAY, __TIME__);
     //printf("Fecha de Compilacion: %s %s\n", __DATE__, __TIME__);
     printf("\nFecha y hora actual: %s", fechayhora);
-    printf("\nVersion 0.1.0");
+    printf("\nVersion 1.0.0");
     printf("\n\nIntegrantes: \n Alejandra Munoz\n Henry Sepulveda\n");
 }
 signed long stringAint(char *cadena){
