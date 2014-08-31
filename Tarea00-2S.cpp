@@ -12,7 +12,7 @@ void error(int cod){
     if (cod==1)
         printf("\nDebe ingresar al menos un parametro...\n");
     else
-        printf("\nParametros invalidos o inexistentes (Parametros: %d)\n", cod-1);
+        printf("\nPar\240metros inv\240lidos o inexistentes (Par\240metros: %d)\n", cod-1);
 }
 void informacion(){
     char fechayhora[80];
@@ -21,11 +21,11 @@ void informacion(){
     tiempo = time(NULL);
     punterotm= localtime(&tiempo);
     strftime( fechayhora, 80, "%Y-%m-%d %X", punterotm);
-    printf("Fecha de Compilacion: %d-%02d-%02d %s", YEAR, MONTH +1, DAY, __TIME__);
+    printf("Fecha de Compilaci\242n: %d-%02d-%02d %s", YEAR, MONTH +1, DAY, __TIME__);
     //printf("Fecha de Compilacion: %s %s\n", __DATE__, __TIME__);
     printf("\nFecha y hora actual: %s", fechayhora);
-    printf("\nVersion 1.0.2");
-    printf("\n\nIntegrantes: \n Alejandra Munoz\n Henry Sepulveda\n");
+    printf("\nVersi\242n 1.0.2");
+    printf("\n\nIntegrantes: \n Alejandra Mu\xA4oz\n Henry Sep\243lveda\n");
 }
 signed long stringAint(char *cadena){
     int i;
@@ -37,7 +37,7 @@ signed long stringAint(char *cadena){
 void eliminarcomillas(char *nombre){
     int i,j;
     j=strlen(nombre);
-    nombre[j-1]='\0'; //Borra comillas del final
+    nombre[j-1]='\0'; //Borra las comillas del final
     for(i=0;i<j;i++)
         nombre[i]=nombre[i+1];
 }
