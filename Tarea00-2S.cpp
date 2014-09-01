@@ -49,10 +49,10 @@ void informacion(){
     printf("Fecha de Compilaci\242n: %d-%02d-%02d %s", YEAR, MONTH +1, DAY, __TIME__);
     //printf("Fecha de Compilacion: %s %s\n", __DATE__, __TIME__);
     printf("\nFecha y hora actual: %s", fechayhora);
-    printf("\nVersi\242n 1.1.3");
+    printf("\nVersi\242n 1.1.4");
     printf("\n\nIntegrantes: \n Alejandra Mu\xA4oz\n Henry Sep\243lveda\n");
 }
-void suma_ventas_rango(char *archivocsv, char *fecha_inicio, char *fecha_termino){ 
+void suma_ventas_rango(char *fecha_inicio, char *fecha_termino, char *archivocsv){ 
         char buffer[51];
         char *monto_string, *nombre, *fecha;
         unsigned long monto=0;
@@ -69,7 +69,7 @@ void suma_ventas_rango(char *archivocsv, char *fecha_inicio, char *fecha_termino
         while (feof(archivo)==0){
                 fgets(buffer, 50, archivo);  //se toma una fila del archivo
                 if (feof(archivo)==0){      //condicion necesaria para evitar punteros a vacÃ­os
-                        nombre=strtok(buffer,";");  //Se separan los campos nombre, fecha, monto de venta
+                        nombre=strtok(buffer,";");  //Se separan los campos nombre, fecha, monto de venta en variables
                         fecha=strtok(NULL,";");
                         eliminarcomillas(fecha);   //Se eliminan las ""
                         monto_string=strtok(NULL,";");
@@ -99,14 +99,12 @@ int main(int argc, char** argv) {
         else
             error(argc);
         }
-    
     if (argc==5){
         if (strcmp(argv[1],"-g")==0) 
             suma_ventas_rango(argv[2],argv[3],argv[4]);
         else
             error(argc);
     }
-    
     if (argc<2 || argc==3 || argc==4 || argc>5){
         error(argc);
     }
