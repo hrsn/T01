@@ -8,9 +8,7 @@ Alejandra Muñoz
 Henry Sepúlveda
 
 
-Programa que recibe como argumento el nombre de un un archivo *.csv, con los datos de ventas por día de cuatro empresas de retail (CencoSux, Falaferia, Porahi, Replay) y retorna:
-
-Con la opción -g la suma de las ventas por tienda en determinado rango de fechas, guardando el resultado en un archivo jpg
+Programa que...
 
 Con la opción -v los integrantes del grupo y la fecha de compilacion del programa
 
