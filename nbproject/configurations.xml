@@ -5,6 +5,9 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>../Tarea3/FECHACOMPILACION.h</itemPath>
+      <itemPath>comun.h</itemPath>
+      <itemPath>grafico.h</itemPath>
+      <itemPath>utils.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -13,8 +16,10 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>Tarea00-2S.cpp</itemPath>
+      <itemPath>Tarea01-2S.cpp</itemPath>
+      <itemPath>escibircsv.c</itemPath>
       <itemPath>graficador.c</itemPath>
+      <itemPath>graficadortorta.c</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -40,9 +45,19 @@
       </compileType>
       <item path="../Tarea3/FECHACOMPILACION.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Tarea00-2S.cpp" ex="false" tool="1" flavor2="0">
+      <item path="Tarea01-2S.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="comun.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="escibircsv.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="graficador.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="graficadortorta.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="grafico.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="utils.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -67,9 +82,19 @@
       </compileType>
       <item path="../Tarea3/FECHACOMPILACION.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Tarea00-2S.cpp" ex="false" tool="1" flavor2="0">
+      <item path="Tarea01-2S.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="comun.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="escibircsv.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="graficador.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="graficadortorta.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="grafico.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="utils.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
   </confs>

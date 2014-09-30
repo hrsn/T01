@@ -1,7 +1,7 @@
-T00
+T01
 ===
 
-Tarea 00 - Ingeniería de Software
+Tarea 01 - Ingeniería de Software
 
 Integrantes:
 Alejandra Muñoz

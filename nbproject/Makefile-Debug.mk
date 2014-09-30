@@ -35,8 +35,10 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/Tarea00-2S.o \
-	${OBJECTDIR}/graficador.o
+	${OBJECTDIR}/Tarea01-2S.o \
+	${OBJECTDIR}/escibircsv.o \
+	${OBJECTDIR}/graficador.o \
+	${OBJECTDIR}/graficadortorta.o
 
 
 # C Compiler Flags
@@ -57,21 +59,31 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/tarea00-2s2014
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/tarea01-2s2014
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/tarea00-2s2014: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/tarea01-2s2014: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/tarea00-2s2014 ${OBJECTFILES} ${LDLIBSOPTIONS}
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/tarea01-2s2014 ${OBJECTFILES} ${LDLIBSOPTIONS}
 
-${OBJECTDIR}/Tarea00-2S.o: Tarea00-2S.cpp 
+${OBJECTDIR}/Tarea01-2S.o: Tarea01-2S.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Tarea00-2S.o Tarea00-2S.cpp
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Tarea01-2S.o Tarea01-2S.cpp
+
+${OBJECTDIR}/escibircsv.o: escibircsv.c 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/escibircsv.o escibircsv.c
 
 ${OBJECTDIR}/graficador.o: graficador.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/graficador.o graficador.c
+
+${OBJECTDIR}/graficadortorta.o: graficadortorta.c 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/graficadortorta.o graficadortorta.c
 
 # Subprojects
 .build-subprojects:
@@ -79,7 +91,7 @@ ${OBJECTDIR}/graficador.o: graficador.c
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
-	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/tarea00-2s2014
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/tarea01-2s2014
 
 # Subprojects
 .clean-subprojects:
