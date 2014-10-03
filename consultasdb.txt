@@ -20,7 +20,7 @@ select peticion, count(peticion) as cant_pet
 from isw.accesos
 where fecha BETWEEN '2014-03-17 00:00:00' AND '2014-04-17 00:00:00'
 group by peticion
-order by cant_pet
+order by cant_pet desc
 limit 100;
 
 --------------------------------------------------------------------
