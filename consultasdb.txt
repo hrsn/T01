@@ -40,3 +40,11 @@ FROM isw.accesos
 where fecha BETWEEN '2014-03-17 00:00:00' AND '2014-04-17 00:00:00'
 group by estado
 limit 100;
+
+-----------------------------
+muestra el total de peticiones por estado en un rango de fecha
+
+select peticion, estado, count(*) as total  
+from isw.accesos
+where fecha BETWEEN '2014-03-17 00:00:00' AND '2014-04-17 00:00:00'
+group by peticion, estado;
