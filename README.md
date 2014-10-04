@@ -1,16 +1,11 @@
 T01
 ===
 
-Tarea 01 - Ingeniería de Software
+Tarea 01 - Ingeniería de Software - 2S 2014
 
 Integrantes:
 Alejandra Muñoz
    Henry Sepúlveda
-
-
-Programa que...
-
-Con la opción -v los integrantes del grupo y la fecha de compilacion del programa
 
 
 Compilado en Linux Mint 16 (Petra) con g++
