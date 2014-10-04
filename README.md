@@ -17,7 +17,7 @@ Compilado en Linux Mint 16 (Petra) con g++
 
 Para compilar: 
 
-g++ '<directorio-donde-está-el-archivo-fuente>/Tarea00-2S.cpp' -o '<ruta-donde-quedará-el ejecutable>/<nombre-del-ejecutable>' -lgd
+g++ '<directorio-donde-está-el-archivo-fuente>/Tarea00-2S.cpp' -o '<ruta-donde-quedará-el ejecutable>/<nombre-del-ejecutable>' -lgd -lpq
 
 
 

@@ -2,6 +2,7 @@
 #include "gdfonts.h"
 #include <stdio.h>
 #include <string.h>
+#include <time.h>
 #include "grafico.h"
 #include "utils.h"
 
