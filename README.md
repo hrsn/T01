@@ -5,7 +5,7 @@ Tarea 01 - Ingeniería de Software
 
 Integrantes:
 Alejandra Muñoz
-Henry Sepúlveda
+   Henry Sepúlveda
 
 
 Programa que...

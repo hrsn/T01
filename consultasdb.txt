@@ -1,0 +1,50 @@
+
+las 100 peticiones mas populares entre ciertas fechas
+
+select peticion, count(peticion) as cant_pet
+from isw.accesos
+where fecha BETWEEN 'fecha inicio' AND 'fecha termino'
+group by cant_pet DESC
+limit 100;
+
+
+select peticion, count(peticion) as cant_pet
+from isw.accesos
+where fecha BETWEEN '2014-03-17 00:00:00' AND '2014-04-17 00:00:00'
+group by cant_pet DES-
+limit 100;
+
+FUNCIONA:
+
+select peticion, count(peticion) as cant_pet
+from isw.accesos
+where fecha BETWEEN '2014-03-17 00:00:00' AND '2014-04-17 00:00:00'
+group by peticion
+order by cant_pet desc
+limit 100;
+
+--------------------------------------------------------------------
+select EXTRACT(MONTH FROM fecha) AS mes, count(peticion) as cant_pet
+FROM isw.accesos
+where fecha BETWEEN '2014-03-17 00:00:00' AND '2014-12-17 00:00:00'
+group by mes;
+
+select count(peticion) as cant_pet, peticion
+FROM isw.accesos
+where fecha BETWEEN '2014-03-17 00:00:00' AND '2014-04-17 00:00:00'
+group by peticion
+limit 100;
+
+select count(peticion) as cant_pet, estado
+FROM isw.accesos
+where fecha BETWEEN '2014-03-17 00:00:00' AND '2014-04-17 00:00:00'
+group by estado
+limit 100;
+
+-----------------------------
+muestra el total de peticiones por estado en un rango de fecha
+
+select peticion, estado, count(*) as total  
+from isw.accesos
+where fecha BETWEEN '2014-03-17 00:00:00' AND '2014-04-17 00:00:00'
+group by peticion, estado;
