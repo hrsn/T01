@@ -36,7 +36,6 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/Tarea01-2S.o \
-	${OBJECTDIR}/escibircsv.o \
 	${OBJECTDIR}/graficador.o \
 	${OBJECTDIR}/graficadortorta.o
 
@@ -69,11 +68,6 @@ ${OBJECTDIR}/Tarea01-2S.o: Tarea01-2S.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Tarea01-2S.o Tarea01-2S.cpp
-
-${OBJECTDIR}/escibircsv.o: escibircsv.c 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/escibircsv.o escibircsv.c
 
 ${OBJECTDIR}/graficador.o: graficador.c 
 	${MKDIR} -p ${OBJECTDIR}
