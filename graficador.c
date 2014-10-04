@@ -110,7 +110,7 @@ void graficobarras(long peticiones[]) {
                 // Etiqueta del Mes  
                 gdImageString(imagen, fuente, ancho + 15, IMG_HEIGHT - BORDE_ALTO + 5, (unsigned char *) etiquetaMes(mes), negro);
                 // Monto
-                gdImageString(imagen, fuente, ancho, IMG_HEIGHT - (BORDE_ALTO + alto + 20), (unsigned char *) longStr(peticiones[mes]), negro);
+                gdImageString(imagen, fuente, ancho + 4, IMG_HEIGHT - (BORDE_ALTO + alto + 20), (unsigned char *) longStr(peticiones[mes]), negro);
                 ancho += 55;
            }else
                 encoger++;

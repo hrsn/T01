@@ -63,6 +63,10 @@ void graficotorta(int n, long cantidad[], int estado[]) {
              //Etiqueta de porcentaje
             memset(etiqueta, 0, 513);
             snprintf(etiqueta, 512, "%s%%",longStr(cantidad[i]*100/suma));
+            if (cantidad[i]*100/suma<3){      //Para que la etiqueta sea legible
+                xEtiqueta = xEtiqueta + 52;
+                yEtiqueta = yEtiqueta - 15;
+            }
             gdImageString(imagen, fuente, xEtiqueta, yEtiqueta+15, (unsigned char *) etiqueta, negro);
             iniciotrozo = (int) iniciotrozo+cantidad[i]*eqgrados;
         }

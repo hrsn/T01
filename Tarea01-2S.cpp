@@ -25,7 +25,7 @@ void informacion(){
     strftime( fechayhora, 80, "%Y-%m-%d %X", punterotm);
     printf("Fecha de Compilaci\242n: %d-%02d-%02d %s", YEAR, MONTH +1, DAY, __TIME__);
     printf("\nFecha y hora actual: %s", fechayhora);
-    printf("\nVersion 0.0.1");
+    printf("\nVersion 0.0.9");
     printf("\n\nIntegrantes: \n Alejandra Mu\xA4oz\n Henry Sep\243lveda\n");
 }
 
@@ -64,7 +64,7 @@ void opciong(char *fecha_inicio, char *fecha_termino){
             //Copia el resultado de la consulta al arreglo
             for (i=0; i<tuplas; i++) {         
                 cantpetpormes[atoi(PQgetvalue(res,i,0))-1] = atol(PQgetvalue(res,i,1));
-                
+                /*
                 for (j=0; j<campos; j++) {
                     printf(" %s ", PQgetvalue(res,i,j));
                     if (j==0){                         //No repetir linea vertical
@@ -72,7 +72,7 @@ void opciong(char *fecha_inicio, char *fecha_termino){
                     }
                 }
                 printf("\n"); 
-                
+               */ 
              }
             graficobarras(cantpetpormes); 
             printf("\nEl grafico de barras ha sido guardado como grafico.jpg en el directorio actual\n");
@@ -103,7 +103,7 @@ void opciont(char *fecha_inicio, char *fecha_termino){
         
         if (PQstatus(conn) != CONNECTION_BAD){       //Si la coneccion es exitosa...
             memset(sql, 0, sizeof (sql));
-            snprintf(sql, 512, "select count(peticion) as cant_pet, estado FROM isw.accesos where fecha BETWEEN '%s 00:00:00' AND '%s 23:59:59'group by estado ORDER BY cant_pet limit 5;", fecha_inicio, fecha_termino);
+            snprintf(sql, 512, "select count(peticion) as cant_pet, estado FROM isw.accesos where fecha BETWEEN '%s 00:00:00' AND '%s 23:59:59'group by estado ORDER BY cant_pet;", fecha_inicio, fecha_termino);
             res = PQexec(conn, sql);
                     
             printf(" Coneccion exitosa.\n");
