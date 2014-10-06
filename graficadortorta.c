@@ -35,7 +35,7 @@ void graficotorta(int n, long cantidad[], int estado[]) {
     float eqgrados;
     int iniciotrozo, fintrozo;
     long suma = 0;
-    
+    int aprox;
     for (i=0; i<n; i++) {    
         suma = suma + cantidad[i];
     }
@@ -60,9 +60,16 @@ void graficotorta(int n, long cantidad[], int estado[]) {
             memset(etiqueta, 0, 513);
             snprintf(etiqueta, 512, "peticion %s",intStr(estado[i]));
             gdImageString(imagen, fuente, xEtiqueta-25, yEtiqueta, (unsigned char *) etiqueta, negro);
-             //Etiqueta de porcentaje
+            //Correccion de aproximacion para el porcentaje
+            aprox = cantidad[i] * 1000 / suma;
+            aprox = aprox%10;
+            if (aprox>=5)
+                aprox = 1;
+            else
+                aprox = 0;
+            //Etiqueta de porcentaje
             memset(etiqueta, 0, 513);
-            snprintf(etiqueta, 512, "%s%%",longStr(cantidad[i]*100/suma));
+            snprintf(etiqueta, 512, "%s%%",longStr(cantidad[i]*100/suma+aprox));
             if (cantidad[i]*100/suma<3){      //Para que la etiqueta sea legible
                 xEtiqueta = xEtiqueta + 52;
                 yEtiqueta = yEtiqueta - 15;

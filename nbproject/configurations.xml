@@ -19,6 +19,7 @@
       <itemPath>Tarea01-2S.cpp</itemPath>
       <itemPath>graficador.c</itemPath>
       <itemPath>graficadortorta.c</itemPath>
+      <itemPath>validafecha.c</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -56,6 +57,8 @@
       </item>
       <item path="utils.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="validafecha.c" ex="false" tool="0" flavor2="0">
+      </item>
     </conf>
     <conf name="Release" type="1">
       <toolsSet>
@@ -90,6 +93,8 @@
       <item path="grafico.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="utils.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="validafecha.c" ex="false" tool="0" flavor2="0">
       </item>
     </conf>
   </confs>

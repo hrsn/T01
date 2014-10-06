@@ -1,12 +1,14 @@
 #include <cstdlib>
 #include <stdio.h>
 #include <string.h>
-#include <time.h> 
+#include <time.h>
+#include <ctype.h>
 #include "FECHACOMPILACION.h"   //para imprimir la fecha en formato ISO
 #include "libpq-fe.h"          //para conectar a BD PostgreSQL
 #include "utils.h"
 #include "graficador.c"
 #include "graficadortorta.c"
+#include "validafecha.c"
 
 using namespace std;
 
@@ -24,10 +26,23 @@ void informacion(){
     tiempo = time(NULL);
     punterotm= localtime(&tiempo);
     strftime( fechayhora, 80, "%Y-%m-%d %X", punterotm);
-    printf("Fecha de Compilaci\242n: %d-%02d-%02d %s", YEAR, MONTH +1, DAY, __TIME__);
+    printf("Fecha de Compilacion: %d-%02d-%02d %s", YEAR, MONTH +1, DAY, __TIME__);
     printf("\nFecha y hora actual: %s", fechayhora);
-    printf("\nVersion 1.0.0");
+    printf("\nVersion 1.1.1");
     printf("\n\nIntegrantes: \n Alejandra Muñoz\n Henry Sepulveda\n");
+}
+
+
+
+bool fechasvalidas(char* fecha1, char* fecha2){
+    int a=0,b=0;
+    a = validarfecha(fecha1);
+    if (a==0)
+       b = validarfecha(fecha2);
+    if ((a+b)==0)
+       return true;
+    else
+        return false;
 }
 
 void opciong(char *fecha_inicio, char *fecha_termino){ 
@@ -156,14 +171,20 @@ void opciona(char *fecha_inicio, char *fecha_termino){
 
 int main(int argc, char** argv) {
     if (argc==4){
-        if (strcmp(argv[1],"-g")==0)
-            opciong(argv[2],argv[3]); // Grafico de barras
+        if (strcmp(argv[1],"-g")==0){
+            if (fechasvalidas(argv[2],argv[3]))
+                opciong(argv[2],argv[3]); // Grafico de barras
+        }
         else
-        if (strcmp(argv[1],"-t")==0)
-            opciont(argv[2],argv[3]); // Grafico de torta
+        if (strcmp(argv[1],"-t")==0){
+            if (fechasvalidas(argv[2],argv[3]))
+                  opciont(argv[2],argv[3]); // Grafico de torta
+        }
         else
         if (strcmp(argv[1],"-a")==0) 
-           opciona(argv[2],argv[3]); // Archivo csv
+            if (fechasvalidas(argv[2],argv[3])){
+                opciona(argv[2],argv[3]); // Archivo csv
+            }
         else
             error(argc);
     }

@@ -37,7 +37,8 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/Tarea01-2S.o \
 	${OBJECTDIR}/graficador.o \
-	${OBJECTDIR}/graficadortorta.o
+	${OBJECTDIR}/graficadortorta.o \
+	${OBJECTDIR}/validafecha.o
 
 
 # C Compiler Flags
@@ -78,6 +79,11 @@ ${OBJECTDIR}/graficadortorta.o: graficadortorta.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/graficadortorta.o graficadortorta.c
+
+${OBJECTDIR}/validafecha.o: validafecha.c 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/validafecha.o validafecha.c
 
 # Subprojects
 .build-subprojects:
