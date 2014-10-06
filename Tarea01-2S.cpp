@@ -28,7 +28,7 @@ void informacion(){
     strftime( fechayhora, 80, "%Y-%m-%d %X", punterotm);
     printf("Fecha de Compilacion: %d-%02d-%02d %s", YEAR, MONTH +1, DAY, __TIME__);
     printf("\nFecha y hora actual: %s", fechayhora);
-    printf("\nVersion 1.1.1");
+    printf("\nVersion 1.1.2");
     printf("\n\nIntegrantes: \n Alejandra Muñoz\n Henry Sepulveda\n");
 }
 
@@ -183,15 +183,19 @@ int main(int argc, char** argv) {
             if (fechasvalidas(argv[2],argv[3])){
                 opciona(argv[2],argv[3]); // Archivo csv
             }
+            else
+               error(argc);
         else
             error(argc);
     }
+
     if (argc==2){
         if (strcmp(argv[1],"-v")==0)
             informacion();
         else
             error(argc);
         }
+ 
     
     if (argc<2 || argc==3 || argc>4){
         error(argc);
