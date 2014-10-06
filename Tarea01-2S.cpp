@@ -32,8 +32,6 @@ void informacion(){
     printf("\n\nIntegrantes: \n Alejandra Muñoz\n Henry Sepulveda\n");
 }
 
-
-
 bool fechasvalidas(char* fecha1, char* fecha2){
     int a=0,b=0;
     a = validarfecha(fecha1);
